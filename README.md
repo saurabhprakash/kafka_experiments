@@ -62,24 +62,23 @@ Setup steps:
        "isr" is the set of "in-sync" replicas. This is the subset of the replicas list that is currently alive and caught-up to the leader.
        
        Now let's consume these messages:
-> bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic my-replicated-topic
-my test message 1
-my test message 2
+        > bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic my-replicated-topic
+        my test message 1
+        my test message 2
 
-Now let's test out fault-tolerance. Broker 1 was acting as the leader so let's kill it:
-> ps aux | grep server-1.properties
-7564 ttys002    0:15.91 /System/Library/Frameworks/JavaVM.framework/Versions/1.8/Home/bin/java...
-> kill -9 7564
+        Now let's test out fault-tolerance. Broker 1 was acting as the leader so let's kill it:
+        > ps aux | grep server-1.properties
+        7564 ttys002    0:15.91 /System/Library/Frameworks/JavaVM.framework/Versions/1.8/Home/bin/java...
+        > kill -9 7564
 
-Leadership has switched to one of the slaves and node 1 is no longer in the in-sync replica set:
-> bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic my-replicated-topic
-Topic:my-replicated-topic   PartitionCount:1    ReplicationFactor:3 Configs:
-    Topic: my-replicated-topic  Partition: 0    Leader: 2   Replicas: 1,2,0 Isr: 2,0
-But the messages are still available for consumption even though the leader that took the writes originally is down:
+        Leadership has switched to one of the slaves and node 1 is no longer in the in-sync replica set:
+        > bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic my-replicated-topic
+        Topic:my-replicated-topic   PartitionCount:1    ReplicationFactor:3 Configs:
+            Topic: my-replicated-topic  Partition: 0    Leader: 2   Replicas: 1,2,0 Isr: 2,0
+        But the messages are still available for consumption even though the leader that took the writes originally is down:
 
-> bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic my-replicated-topic
-...
-my test message 1
-my test message 2
-^C
+        > bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic my-replicated-topic
+        ...
+        my test message 1
+        my test message 2
     ```
