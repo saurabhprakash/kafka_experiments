@@ -82,3 +82,6 @@ Setup steps:
         my test message 1
         my test message 2
     ```
+    
+ - Use Kafka Connect to import/export data: Kafka Connect is a tool included with Kafka that imports and exports data to Kafka. It is an extensible tool that runs connectors, which implement the custom logic for interacting with an external system.
+  
