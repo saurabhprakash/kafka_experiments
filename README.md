@@ -1,6 +1,6 @@
 # kafka_experiments
 
-Kafka Python sample tutorial link: https://scotch.io/tutorials/build-a-distributed-streaming-system-with-apache-kafka-and-python
+Kafka Python sample tutorial link: https://github.com/saurabhprakash/kafka_experiments/tree/master/sample_python_kafka_module
 
 Setup steps:
  - Download link(download the binary instead of source): https://kafka.apache.org/downloads
