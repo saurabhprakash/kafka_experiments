@@ -1,0 +1,4 @@
+Flask==0.12.2
+ipython==5.5.0
+kafka-python==1.4.2
+Pillow==5.0.0
