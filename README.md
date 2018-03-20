@@ -1,6 +1,7 @@
 # kafka_experiments
 
 Kafka Python sample tutorial link: https://github.com/saurabhprakash/kafka_experiments/tree/master/sample_python_kafka_module
+Official sample link: http://kafka-python.readthedocs.io/en/master/usage.html
 
 Setup steps:
  - Download link(download the binary instead of source): https://kafka.apache.org/downloads
