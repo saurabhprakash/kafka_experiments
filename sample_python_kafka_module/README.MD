@@ -7,3 +7,5 @@ For running this application:
  - run "python producer.py" on one console[which produces timestamp on interval of 2 secs]
  - run "python consumer.py" - runs a flask application which can be used to consume the produced messages. Consumed messages can be seen on "localhost:5000"
  
+ 
+Kafka Python client used: https://github.com/dpkp/kafka-python
