@@ -9,3 +9,6 @@ For running this application:
  
  
 Kafka Python client used: https://github.com/dpkp/kafka-python
+
+#### For sending large messages:
+ - we need to add max_request_size and buffer_memory while creating produrcer, For e.g. producer = kafka.KafkaProducer(bootstrap_servers=settings.KAFKA_ADDRESS, value_serializer=lambda v: json.dumps(v).encode('utf-8'), max_request_size=1048576000, buffer_memory=1048576000)
