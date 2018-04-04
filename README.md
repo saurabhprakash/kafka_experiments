@@ -86,3 +86,9 @@ Setup steps:
     
  - Use Kafka Connect to import/export data: Kafka Connect is a tool included with Kafka that imports and exports data to Kafka. It is an extensible tool that runs connectors, which implement the custom logic for interacting with an external system.
   
+# Important changes for sending large messages
+[Below numbers can be set as per requirement], related link: https://stackoverflow.com/questions/21020347/how-can-i-send-large-messages-with-kafka-over-15mb
+ - message.max.bytes = 104857600
+ - max.message.bytes = 104857600
+ - replica.fetch.max.bytes  = 104857600
+ - fetch.message.max.bytes = 104857600
